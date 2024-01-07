@@ -13,7 +13,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         if (item.status === 'fulfilled') {
           value.value = item.value;
         } else {
-          value.reason = String.toString(item.reason);
+          value.reason = `${item.reason}`;
         }
         result.push(value);
       });
