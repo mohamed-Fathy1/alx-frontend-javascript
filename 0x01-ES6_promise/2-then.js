@@ -8,6 +8,6 @@ export default function handleResponseFromAPI(promise) {
     } else { reject(); }
   })
     .then((data) => data)
-    .catch((err) => err)
+    .catch(Error())
     .finally(console.log('Got a response from the API'));
 }
