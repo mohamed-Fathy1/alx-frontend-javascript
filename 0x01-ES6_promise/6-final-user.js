@@ -5,18 +5,18 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
-  ]);
-  // .then((data) => {
-  //   const result = [];
-  //   data.forEach((item) => {
-  //     if (item.status === 'fulfilled') {
-  //       console.log(item.value);
-  //       result.push(item.value);
-  //     } else {
-  //       console.log(item.reason);
-  //       result.push(item.reason);
-  //     }
-  //   });
-  //   return result;
-  // });
+  ])
+    .then((data) => {
+      const result = [];
+      data.forEach((item) => {
+        const value = { status: item.status };
+        if (item.status === 'fulfilled') {
+          value.value = item.value;
+        } else {
+          value.reason = item.reason.message;
+        }
+        result.push(value);
+      });
+      return result;
+    });
 }
