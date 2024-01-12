@@ -1,6 +1,7 @@
 export default function cleanSet(set, startString) {
+  if (startString === '' || typeof startString !== 'string') return '';
   return [...set].map((item) => {
-    if (startString && item.startsWith(startString) && typeof item === 'string') {
+    if (typeof item === 'string' && item.startsWith(startString)) {
       /* eslint-disable no-param-reassign */
       item = item.replace(startString, '');
     } else {
