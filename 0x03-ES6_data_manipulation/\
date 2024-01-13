@@ -1,0 +1,13 @@
+const weakMap = new Map([['numberOfApiCalls', 0]]);
+
+function queryAPI (ep) {
+  console.log(weakMap);
+  const numberOfApiCalls = (weakMap.get('numberOfApiCalls'))++;
+  console.log(numberOfApiCalls);
+  weakMap.set('numberOfApiCalls', numberOfApiCalls);
+  if (numberOfApiCalls >= 5) { throw new Error('Endpoint load is high'); }
+
+  return numberOfApiCalls;
+}
+
+export { queryAPI, weakMap };
