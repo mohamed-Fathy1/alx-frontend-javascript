@@ -34,3 +34,4 @@ var StudentClass = /** @class */ (function () {
 var student1 = new StudentClass('John', 'Doe');
 console.log(student1.workOnHomework());
 console.log(student1.displayName());
+//# sourceMappingURL=main.js.map
